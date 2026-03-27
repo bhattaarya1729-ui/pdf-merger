@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PDF Merger</title>
+    <meta name="description" content="Merge multiple PDF files into one" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ── NAVBAR ── -->
+    <nav>
+      <a href="#" class="nav-brand">
+        <div class="nav-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+        </div>
+        <span class="nav-brand-name">PDF<span>Merge</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">How it works</a></li>
+        <li><a href="#">Features <span class="nav-badge">New</span></a></li>
+        <li><a href="#" class="nav-cta">Get started →</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-tag">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        Free &amp; instant
+      </div>
+      <h1>Merge your PDFs<br /><em>effortlessly.</em></h1>
+      <p>Drop your files, reorder them, and download a single perfectly combined PDF in seconds.</p>
+    </section>
+
+    <!-- ── UPLOAD CARD ── -->
+    <main class="main-card">
+
+      <div class="upload-zone" id="drop-zone">
+        <input type="file" name="pdf" class="form-control-file" id="exampleFormControlFile1" multiple accept=".pdf" />
+        <div class="upload-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8ff47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 16 12 12 8 16"/>
+            <line x1="12" y1="12" x2="12" y2="21"/>
+            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+          </svg>
+        </div>
+        <h3>Drop PDF files here</h3>
+        <p>or <span>browse to upload</span> &nbsp;·&nbsp; multiple files supported</p>
+      </div>
+
+      <div id="file-list"></div>
+
+      <button class="merge-btn" id="mergeBtn" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 6H21M8 12H21M8 18H21M3 6h.01M3 12h.01M3 18h.01"/>
+        </svg>
+        Merge PDFs
+      </button>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number" id="count-stat">0</span>
+          <div class="stat-label">Files selected</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="size-stat">0 KB</span>
+          <div class="stat-label">Total size</div>
+        </div>
+      </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>
