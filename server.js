@@ -4,7 +4,14 @@ const multer = require('multer');
 
 const app = express();
 const port = 3000;
-const upload = multer({ dest: 'uploads/' });
+
+const storage = multer.diskStorage({
+  destination: 'uploads/',
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ storage });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -14,9 +21,7 @@ app.get('/', (req, res) => {
 
 app.post('/merge', upload.array('pdf', 10), async function(req, res, next) {
   try {
-    // Dynamic import fixes the CommonJS/ESModule conflict
     const { default: PDFMerger } = await import('pdf-merger-js');
-    
     const merger = new PDFMerger();
 
     for (const file of req.files) {
@@ -25,7 +30,6 @@ app.post('/merge', upload.array('pdf', 10), async function(req, res, next) {
 
     const outputPath = path.join(__dirname, 'uploads', 'merged.pdf');
     await merger.save(outputPath);
-
     res.download(outputPath, 'merged.pdf');
 
   } catch (err) {
